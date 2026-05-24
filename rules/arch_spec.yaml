@@ -1,0 +1,35 @@
+# arch_spec.yaml
+# Architecture conventions that the refactor agent must follow.
+
+version: "2.1"
+
+naming:
+  functions: snake_case
+  classes: PascalCase
+  constants: UPPER_SNAKE_CASE
+  private_members: _prefixed
+
+structure:
+  max_module_responsibilities: 1   # Single Responsibility Principle
+  preferred_patterns:
+    - repository_pattern           # Data access via repositories
+    - service_layer                # Business logic in service classes
+    - dependency_injection         # No direct instantiation of dependencies
+
+imports:
+  order:
+    - stdlib
+    - third_party
+    - internal
+  no_wildcard_imports: true
+  no_circular_imports: true
+
+type_safety:
+  require_return_types: true
+  require_param_types: true
+  use_optional_for_nullable: true
+
+testing:
+  min_coverage: 80
+  required_for: [services, repositories, utils]
+  naming: "test_{module_name}.py"

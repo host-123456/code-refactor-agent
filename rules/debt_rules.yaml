@@ -1,0 +1,10 @@
+# debt_rules.yaml
+# Thresholds for the scanner's rule engine.
+
+max_complexity: 10          # Cyclomatic complexity limit per function
+min_name_length: 3          # Minimum characters for function/variable names
+max_function_lines: 60      # Functions longer than this are flagged
+max_file_lines: 500         # Files longer than this trigger a modularization note
+require_type_annotations: true
+detect_dead_imports: true
+detect_dry_violations: true
